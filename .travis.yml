@@ -5,9 +5,9 @@ node_js: 10
 
 stages:
   - build
-  - deploy
+  - name: deploy
     if: branch = master
-    env: TARGET=html5
+    env: TARGET = html5
 
 env:
   - TARGET=linux --compile
