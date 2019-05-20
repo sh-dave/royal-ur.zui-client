@@ -23,7 +23,8 @@ script:
   - node Kha/make $BUILD_TARGET $BUILD_OPTS
 
 before_deploy:
-  - zip -r royal-ur.zui-client-${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}.zip build/
+  - mv build/${BUILD_TARGET} build/${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}
+  - zip -r royal-ur.zui-client-${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}.zip build/${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}
 
 deploy:
   - provider: releases

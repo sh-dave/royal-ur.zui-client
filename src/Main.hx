@@ -99,7 +99,7 @@ class Main {
                                     }
                             }
                         } else {
-                            z.text('WAITING FOR OTHER PLAYER', Center);
+                            z.text('OTHER PLAYERS TURN', Center);
                             z.text('');
                         }
                     case Won(_, winner):
