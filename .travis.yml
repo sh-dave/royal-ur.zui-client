@@ -7,6 +7,7 @@ addons:
     - mesa-common-dev
     - libgl-dev
     - libxi-dev
+    - zip
 
 language: node_js
 node_js: 10
@@ -21,22 +22,22 @@ env:
 script:
   - node Kha/make $BUILD_TARGET $BUILD_OPTS
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  committer_from_gh: true
-  local_dir: build/html5
-  on:
-    branch: master
-    condition: $BUILD_TARGET = html5
+before_deploy:
+  - zip -r royal-ur.zui-client-${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}.tar.gz build/
 
 deploy:
-  provider: releases
-  api_key: $GITHUB_TOKEN
-  file_glob: true
-  file: build/$BUILD_TARGET/**/*
-  skip_cleanup: true
-  on:
-    condition: $BUILD_TARGET = linux-hl
+  - provider: releases
+    api_key: $GITHUB_TOKEN
+    file: royal-ur.zui-client-${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}.zip
+    skip_cleanup: true
+    on:
+      condition: $BUILD_TARGET = linux-hl
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    committer_from_gh: true
+    local_dir: build/html5
+    on:
+      branch: master
+      condition: $BUILD_TARGET = html5
