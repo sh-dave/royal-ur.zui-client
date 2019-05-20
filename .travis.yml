@@ -11,12 +11,9 @@ addons:
 language: node_js
 node_js: 10
 
-os:
-  - linux
-
 env:
   # - BUILD_TARGET=linux BUILD_OPTS="--compile"
-  # - BUILD_TARGET=linux-hl BUILD_OPTS="--compile"
+  - BUILD_TARGET=linux-hl BUILD_OPTS="--compile"
   - BUILD_TARGET=html5 BUILD_OPTS=""
   # - BUILD_TARGET=osx --compile
   # - BUILD_TARGET=osx-hl --compile
@@ -35,11 +32,11 @@ deploy:
     branch: master
     condition: $BUILD_TARGET = html5
 
-# deploy:
-#   provider: releases
-#   api_key: GIHUB_OAUTH_TOKEN
-#   file_glob: true
-#   file: build/$BUILD_TARGET/**/*
-#   skip_cleanup: true
-#   on:
-#     condition: $BUILD_TARGET = linux
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file_glob: true
+  file: build/$BUILD_TARGET/**/*
+  skip_cleanup: true
+  on:
+    condition: $BUILD_TARGET = linux
