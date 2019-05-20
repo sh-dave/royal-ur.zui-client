@@ -11,7 +11,7 @@ stages:
 
 env:
   - TARGET=linux --compile
-  - TARGET=linux-hl --compile
+  # - TARGET=linux-hl --compile
   - TARGET=html5
   # - TARGET=osx --compile
   # - TARGET=osx-hl --compile
