@@ -1,19 +1,27 @@
 dist: xenial
+addons:
+  apt:
+    packages:
+    - libxinerama-dev
+    - libasound2-dev
+    - mesa-common-dev
+    - libgl-dev
+    - libxi-dev
 
 language: node_js
 node_js: 10
 
 env:
-  - BUILD_TARGET=linux BUILD_TARGET_COMPILE=--compile
-  # - TARGET=linux-hl --compile
-  - BUILD_TARGET=html5 BUILD_TARGET_COMPILE=""
-  # - TARGET=osx --compile
-  # - TARGET=osx-hl --compile
+  - BUILD_TARGET=linux --compile
+  - BUILD_TARGET=linux-hl --compile
+  - BUILD_TARGET=html5
+  # - BUILD_TARGET=osx --compile
+  # - BUILD_TARGET=osx-hl --compile
 
 stages:
   - build
-  - name: deploy
-    if: branch = master
+  # - name: deploy
+    # if: branch = master
 
 jobs:
   include:
