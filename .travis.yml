@@ -12,9 +12,9 @@ language: node_js
 node_js: 10
 
 env:
-  - BUILD_TARGET=linux --compile
-  - BUILD_TARGET=linux-hl --compile
-  - BUILD_TARGET=html5
+  - BUILD_TARGET="linux --compile"
+  - BUILD_TARGET="linux-hl --compile"
+  - BUILD_TARGET="html5"
   # - BUILD_TARGET=osx --compile
   # - BUILD_TARGET=osx-hl --compile
 
@@ -26,7 +26,7 @@ stages:
 jobs:
   include:
     - stage: build
-      script: node Kha/make $BUILD_TARGET $BUILD_TARGET_COMPILE
+      script: node Kha/make $BUILD_TARGET
     # - stage: deploy
       # script: ./deploy
       # env: TARGET = html5
