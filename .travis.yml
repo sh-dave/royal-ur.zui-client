@@ -11,32 +11,35 @@ addons:
 language: node_js
 node_js: 10
 
+os:
+  - linux
+
 env:
-  - BUILD_TARGET="linux --compile"
-  - BUILD_TARGET="linux-hl --compile"
-  - BUILD_TARGET="html5"
+  # - BUILD_TARGET=linux BUILD_OPTS="--compile"
+  # - BUILD_TARGET=linux-hl BUILD_OPTS="--compile"
+  - BUILD_TARGET=html5 BUILD_OPTS=""
   # - BUILD_TARGET=osx --compile
   # - BUILD_TARGET=osx-hl --compile
 
-stages:
-  - build
-  # - name: deploy
-    # if: branch = master
+script:
+  - node Kha/make $BUILD_TARGET $BUILD_OPTS
 
-jobs:
-  include:
-    - stage: build
-      script: node Kha/make $BUILD_TARGET
-    # - stage: deploy
-      # script: ./deploy
-      # env: TARGET = html5
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  committer_from_gh: true
+  local_dir: build/html5
+  on:
+    branch: master
+    condition: $BUILD_TARGET = html5
 
 # deploy:
-#   provider: pages
+#   provider: releases
+#   api_key: GIHUB_OAUTH_TOKEN
+#   file_glob: true
+#   file: build/$BUILD_TARGET/**/*
 #   skip_cleanup: true
-#   github_token: $GITHUB_TOKEN
-#   keep_history: true
-#   committer_from_gh: true
-#   local_dir: build/html5
 #   on:
-#     branch: master
+#     condition: $BUILD_TARGET = linux
