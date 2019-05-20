@@ -1,0 +1,19 @@
+version: 0.0.{build}
+
+platform:
+  - x64
+  # - x86
+
+environment:
+  matrix:
+  - platform_name: windows
+  # - platform_name: windows-hl
+
+before_build:
+  - git submodule update --init --recursive
+  - git clone https://github.com/Kode/nodejs_bin.git
+  - nodejs_bin\node.exe Kha\make %platform_name% --compile
+
+build:
+  project: build\%platform_name%-build\ruz.sln
+  verbosity: minimal
