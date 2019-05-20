@@ -1,0 +1,39 @@
+[submodule "libs/coconut.data"]
+	path = libs/coconut.data
+	url = https://github.com/mvcoconut/coconut.data.git
+[submodule "libs/tink_state"]
+	path = libs/tink_state
+	url = https://github.com/haxetink/tink_state.git
+[submodule "libs/tink_core"]
+	path = libs/tink_core
+	url = https://github.com/haxetink/tink_core.git
+[submodule "libs/tink_lang"]
+	path = libs/tink_lang
+	url = https://github.com/haxetink/tink_lang.git
+[submodule "libs/tink_syntaxhub"]
+	path = libs/tink_syntaxhub
+	url = https://github.com/haxetink/tink_syntaxhub.git
+[submodule "libs/tink_priority"]
+	path = libs/tink_priority
+	url = https://github.com/haxetink/tink_priority.git
+[submodule "libs/tink_macro"]
+	path = libs/tink_macro
+	url = https://github.com/haxetink/tink_macro.git
+[submodule "libs/tink_pure"]
+	path = libs/tink_pure
+	url = https://github.com/haxetink/tink_pure.git
+[submodule "libs/tink_slice"]
+	path = libs/tink_slice
+	url = https://github.com/haxetink/tink_slice.git
+[submodule "libs/tink_anon"]
+	path = libs/tink_anon
+	url = https://github.com/haxetink/tink_anon.git
+[submodule "Kha"]
+	path = Kha
+	url = https://github.com/Kode/Kha.git
+[submodule "libs/zui"]
+	path = libs/zui
+	url = https://github.com/armory3d/zui.git
+[submodule "libs/royal-ur.logic"]
+	path = libs/royal-ur.logic
+	url = https://github.com/sh-dave/royal-ur.logic.git
