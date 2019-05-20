@@ -7,7 +7,7 @@ import zui.Zui;
 
 class Main {
     public static function main() {
-        kha.System.start({ width: 384 * 2, height: 350 * 2 }, function( _ ) {
+        kha.System.start({ width: 384, height: 350 }, function( _ ) {
             kha.Assets.loadEverything(boot);
         });
     }
