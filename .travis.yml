@@ -39,4 +39,4 @@ deploy:
   file: build/$BUILD_TARGET/**/*
   skip_cleanup: true
   on:
-    condition: $BUILD_TARGET = linux
+    condition: $BUILD_TARGET = linux-hl
