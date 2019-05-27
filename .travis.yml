@@ -23,10 +23,11 @@ script:
   - node Kha/make $BUILD_TARGET $BUILD_OPTS
 
 before_deploy:
-  if ![[ $BUILD_TARGET = "html5"]]; then
-    mv build/${BUILD_TARGET} build/${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}
-    zip -r royal-ur.zui-client-${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}.zip build/${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}
-  fi
+  - |
+    if [ $BUILD_TARGET == "linux-hl" ]; then
+      mv build/${BUILD_TARGET} build/${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER} &&
+      zip -r royal-ur.zui-client-${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}.zip build/${BUILD_TARGET}-${TRAVIS_BUILD_NUMBER}
+    fi
 
 deploy:
   - provider: releases
