@@ -26,3 +26,12 @@ after_build:
 artifacts:
   - path: royal-ur.zui-client-win-{build}.zip
     name: royal-ur.zui-client-win-{build}
+
+deploy:
+  provider: GitHub
+  auth_token:
+      secure: UqSAhslPyMlxBHHbJhNv8fsEgZmwcws9/hV2r0GQjccsPJDroKfF5/mC6jnBX/B1
+  artifact: royal-ur.zui-client-win-{build}
+  draft: true
+  on:
+    branch: master
