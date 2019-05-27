@@ -19,3 +19,10 @@ before_build:
 build:
   project: build\%platform_name%-build\ruz.sln
   verbosity: minimal
+
+after_build:
+  - 7z a royal-ur.zui-client-win-{build}.zip $APPVEYOR_BUILD_FOLDER%\build\windows\*.*
+
+artifacts:
+  - path: royal-ur.zui-client-win-{build}.zip
+    name: royal-ur.zui-client-win-{build}
