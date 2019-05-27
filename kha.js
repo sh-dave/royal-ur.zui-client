@@ -178,7 +178,7 @@ Main.boot = function() {
 						break;
 					}
 				} else {
-					z.text("WAITING FOR OTHER PLAYER",1);
+					z.text("OTHER PLAYERS TURN",1);
 					z.text("");
 				}
 				break;
