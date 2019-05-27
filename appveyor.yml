@@ -21,7 +21,7 @@ build:
   verbosity: minimal
 
 after_build:
-  - 7z a royal-ur.zui-client-win-{build}.zip $APPVEYOR_BUILD_FOLDER%\build\windows\*.*
+  - 7z a royal-ur.zui-client-win-{build}.zip %APPVEYOR_BUILD_FOLDER%\build\windows\*.*
 
 artifacts:
   - path: royal-ur.zui-client-win-{build}.zip
